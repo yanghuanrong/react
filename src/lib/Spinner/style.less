@@ -1,0 +1,23 @@
+@import url("../global.less");
+
+.input-group {
+  display: flex;
+
+  input{
+    position: relative;
+    z-index: 3
+  }
+
+  .btn{
+    &:nth-of-type(1){
+      margin-right: -1px;
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+    &:nth-last-of-type(1){
+      margin-left: -1px;
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+  }
+}
