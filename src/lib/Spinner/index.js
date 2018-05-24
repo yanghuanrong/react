@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import Button from '../button/index'
+import Button from '../Button'
 import './style.less'
 
 class Spinner extends Component {
