@@ -14,10 +14,10 @@ class Button extends Component {
     icon: PropTypes.string,
   }
   classNames(type,size,outline,disabled){
-    type = type !== undefined ? `btn-${type}` : ''
-    size = size !== undefined ? `btn-${size}` : ''
-    outline = outline !== undefined || outline ? `btn-outline` : ''
-    disabled = disabled !== undefined || disabled ? 'disabled' : ''
+    type = type !== undefined ? `btn-${type}` : "";
+    size = size !== undefined ? `btn-${size}` : "";
+    outline = outline !== undefined || outline ? `btn-outline` : "";
+    disabled = disabled !== undefined || disabled ? 'disabled' : "";
 
     return `btn ${type} ${size} ${outline} ${disabled}`.replace(/(^\s*)|(\s*)$/g,"")
   }
