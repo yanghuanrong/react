@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
+import Icon from '../icon';
 import './style.less'
 
 class Button extends Component {
@@ -9,7 +10,8 @@ class Button extends Component {
     children: PropTypes.string,
     disabled: PropTypes.bool,
     outline: PropTypes.bool,
-    href: PropTypes.string
+    href: PropTypes.string,
+    icon: PropTypes.string,
   }
   classNames(type,size,outline,disabled){
     type = type !== undefined ? `btn-${type}` : ''
@@ -29,8 +31,13 @@ class Button extends Component {
     }
     return props
   }
+  propsIcon(parmas){
+    if(parmas !== undefined){
+      return <Icon type={parmas}></Icon>
+    }
+  }
   render() {
-    let {type,size,children,disabled,outline,href} = this.props
+    let {type,size,children,disabled,outline,href,icon} = this.props
     let Component = href ? 'a' : 'button'
     let a = {}
     if(Component === 'a'){
@@ -41,7 +48,9 @@ class Button extends Component {
       className={this.classNames(type,size,outline,disabled)}
       {...a}
       {...this.propsFn()}
-    >{children}</Component>
+    >
+      {this.propsIcon(icon)} {children}
+    </Component>
   }
 }
 

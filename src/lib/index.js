@@ -1,7 +1,9 @@
-import Button from './button/index';
-import Spinner from './Spinner/index'
+import Button from './button'
+import Icon from './icon'
+import Spinner from './Spinner'
 
 export {
   Button,
+  Icon,
   Spinner
 }
