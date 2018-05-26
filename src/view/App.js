@@ -5,6 +5,18 @@ import './page.less'
 import ViewButton from './ViewButton'
 import ViewIcon from './ViewIcon'
 
+const routes = [
+  {
+    path: "/button",
+    sidebar: () => <h2 className="navbar-title">Button</h2>,
+    main: () => <ViewButton></ViewButton>
+  },
+  {
+    path: "/icon",
+    sidebar: () => <h2 className="navbar-title">Icon</h2>,
+    main: () => <ViewIcon></ViewIcon>
+  }
+];
 
 const Sidebar = () => {
   return (<aside className="page-sidebar">
@@ -19,7 +31,7 @@ const Sidebar = () => {
             <NavLink to="/button" className="sidebar-link">Button 按钮</NavLink>
           </li>
           <li>
-            <NavLink to="/icon"  className="sidebar-link">Icon 图标</NavLink>
+            <NavLink to="/icon" className="sidebar-link">Icon 图标</NavLink>
           </li>
         </ul>
       </div>
@@ -33,9 +45,11 @@ class App extends Component {
       <div className="page">
         <Sidebar></Sidebar>
         <div className="page-content">
+          <header className="navbar m-b">
+              {routes.map((route,index) => (<Route path={route.path} component={route.sidebar} key={index}/>))}
+          </header>
           <Switch>
-            <Route path="/button" component={ViewButton}/>
-            <Route path="/icon" component={ViewIcon}/>
+            {routes.map((route,index) => (<Route path={route.path} component={route.main} key={index}/>))}
             <Redirect from="/" to="/button"/>
           </Switch>
         </div>

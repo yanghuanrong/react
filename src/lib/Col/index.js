@@ -15,7 +15,7 @@ class Col extends Component {
     offset: PropTypes.number,
     order: PropTypes.number,
   }
-  classNames(span, offset, order){
+  classNames(span = 12, offset, order){
     span = `col-${span}`;
     offset = offset !== undefined ? `offset-${offset}` : "";
     order = order !== undefined ? `order-${order}` : "";

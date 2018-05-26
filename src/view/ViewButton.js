@@ -5,7 +5,7 @@ class ViewButton extends Component {
   render() {
     console.log(this)
     return (<Row>
-      <Col span={6}>
+      <Col>
         <div className="m-b">
           <Button type='success'>Success</Button>
           <Button type='primary'>Primary</Button>
@@ -14,7 +14,7 @@ class ViewButton extends Component {
           <Button type='info'>Info</Button>
         </div>
       </Col>
-      <Col span={6} offset={2}>
+      <Col>
         <div className="m-b">
           <Button type='success' outline={true}>Success</Button>
           <Button type='primary' outline={true}>Primary</Button>
@@ -23,7 +23,7 @@ class ViewButton extends Component {
           <Button type='info' outline={true}>Info</Button>
         </div>
       </Col>
-      <Col span={6}>
+      <Col>
         <div className='m-b'>
           <Button type='success' disabled={true}>Success</Button>
           <Button type='primary' disabled={true}>Primary</Button>
@@ -32,14 +32,14 @@ class ViewButton extends Component {
           <Button type='info' disabled={true}>Info</Button>
         </div>
       </Col>
-      <Col span={6}>
+      <Col>
         <div className="m-b">
           <Button type='success' size='lg'>Large</Button>
           <Button type='default'>default</Button>
           <Button type='primary' size='sm'>Small</Button>
         </div>
       </Col>
-      <Col span={6}>
+      <Col>
         <div className="m-b">
           <Button type='success' icon='user'>user</Button>
           <Button type='default' icon='github'>github</Button>
