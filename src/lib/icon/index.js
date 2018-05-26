@@ -11,7 +11,7 @@ class Icon extends Component {
     let {type,style} = this.props
     if(type !== undefined){
       type = `icon-${type}`
-      return <i className={`feather ${type}`} {...style}></i>
+      return <i className={`icon ${type}`} {...style}></i>
     }
   }
 }

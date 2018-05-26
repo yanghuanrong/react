@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {Switch} from 'react-router'
+import {Switch,withRouter} from 'react-router'
 import {HashRouter, Route, NavLink, Redirect} from "react-router-dom"
 import './page.less'
 import ViewButton from './ViewButton'
@@ -10,8 +10,7 @@ const routes = [
     path: "/button",
     sidebar: () => <h2 className="navbar-title">Button</h2>,
     main: () => <ViewButton></ViewButton>
-  },
-  {
+  }, {
     path: "/icon",
     sidebar: () => <h2 className="navbar-title">Icon</h2>,
     main: () => <ViewIcon></ViewIcon>
@@ -39,21 +38,36 @@ const Sidebar = () => {
   </aside>)
 }
 
+class ScrollToTop extends Component {
+  componentDidUpdate(prevProps) {
+    if (this.props.location !== prevProps.location) {
+      window.scrollTo(0, 0)
+    }
+  }
+  render() {
+    return this.props.children
+  }
+}
+
+const ToTop = withRouter(ScrollToTop)
+
 class App extends Component {
   render() {
     return (<HashRouter>
-      <div className="page">
-        <Sidebar></Sidebar>
-        <div className="page-content">
-          <header className="navbar m-b">
-              {routes.map((route,index) => (<Route path={route.path} component={route.sidebar} key={index}/>))}
-          </header>
-          <Switch>
-            {routes.map((route,index) => (<Route path={route.path} component={route.main} key={index}/>))}
-            <Redirect from="/" to="/button"/>
-          </Switch>
+      <ToTop>
+        <div className="page">
+          <Sidebar></Sidebar>
+          <div className="page-content">
+            <header className="navbar m-b">
+              {routes.map((route, index) => (<Route path={route.path} component={route.sidebar} key={index}/>))}
+            </header>
+            <Switch>
+              {routes.map((route, index) => (<Route path={route.path} component={route.main} key={index}/>))}
+              <Redirect from="/" to="/button"/>
+            </Switch>
+          </div>
         </div>
-      </div>
+      </ToTop>
     </HashRouter>)
   }
 }
