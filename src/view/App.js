@@ -5,28 +5,33 @@ import './page.less'
 import ViewButton from './ViewButton'
 import ViewIcon from './ViewIcon'
 
+
+const Sidebar = () => {
+  return (<aside className="page-sidebar">
+    <div className="sidebar">
+      <div className="sidebar-brand">
+        <a>Logo</a>
+      </div>
+      <div className="sidebar-body">
+        <span className="sidebar-title">General</span>
+        <ul className="sidebar-list">
+          <li>
+            <NavLink to="/button" className="sidebar-link">Button 按钮</NavLink>
+          </li>
+          <li>
+            <NavLink to="/icon"  className="sidebar-link">Icon 图标</NavLink>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </aside>)
+}
+
 class App extends Component {
   render() {
     return (<HashRouter>
       <div className="page">
-        <aside className="page-sidebar">
-          <div className="sidebar">
-            <div className="sidebar-brand">
-              <a>Logo</a>
-            </div>
-            <div className="sidebar-body">
-              <span className="sidebar-title">General</span>
-              <ul className="sidebar-list">
-                <li>
-                  <NavLink to="/button" className="sidebar-link">Button 按钮</NavLink>
-                </li>
-                <li>
-                  <NavLink to="/icon"  className="sidebar-link">Icon 图标</NavLink>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </aside>
+        <Sidebar></Sidebar>
         <div className="page-content">
           <Switch>
             <Route path="/button" component={ViewButton}/>
