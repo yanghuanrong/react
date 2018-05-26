@@ -7,7 +7,7 @@ class Row extends Component {
     children: PropTypes.node,
   }
   render() {
-    return <div className="row">{this.props.children}</div>
+    return <div className="container"><div className="row">{this.props.children}</div></div>
   }
 }
 

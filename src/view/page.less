@@ -1,0 +1,135 @@
+blockquote,
+body,
+dd,
+dl,
+fieldset,
+figure,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+hr,
+legend,
+ol,
+p,
+pre,
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #f4f6f9;
+}
+
+button {
+  cursor: pointer;
+}
+
+ol,
+ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+li > ol,
+li > ul {
+  margin-bottom: 0;
+}
+@blue: #2083fe;
+
+a {
+  transition: color 0.15s ease-in-out;
+  background-color: transparent;
+  text-decoration: none;
+  cursor: pointer;
+  -webkit-text-decoration-skip: objects;
+  text-decoration-skip: objects;
+
+  &:hover {
+    color: @blue;
+  }
+}
+
+.page {
+  position: relative;
+  height: 100%;
+}
+
+.page-sidebar {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 250px;
+  height: 100%;
+  max-height: 100%;
+}
+
+.sidebar {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-right: 1px solid #e1e2e8;
+  background-color: #f4f6f9;
+
+  .sidebar-brand{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    height: 70px;
+    padding: .3125rem 15px .3125rem 30px;
+    color: #252529;
+    font-size: 1.25rem;
+  }
+
+  .sidebar-title {
+    display: block;
+    margin: 0;
+    padding: 0.5rem 15px 0.5rem 30px;
+    color: #99a5bd;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+
+  .sidebar-list {
+    .sidebar-link {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      margin: 10px 0;
+      padding: 0.3125rem 10px 0.3125rem 30px;
+      border-left: 3px solid transparent;
+      color: #768093;
+      font-size: 0.875rem;
+
+      &.active,
+      &:hover {
+        border-left-color: @blue;
+        color: @blue;
+      }
+    }
+  }
+}
+
+.page-content {
+  position: absolute;
+  right: 0;
+  left: 250px;
+  min-height: 100%;
+  transition: -webkit-transform 0.3s;
+  transition: transform 0.3s;
+  transition: transform 0.3s,-webkit-transform 0.3s;
+  background-color: #f4f6f9;
+}
