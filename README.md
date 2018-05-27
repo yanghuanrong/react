@@ -1,5 +1,6 @@
 # React
 
+(项目预览)[http://www.baidu.com]
 
 ## 构建步骤
 
@@ -11,5 +12,3 @@ npm install
 npm start
 
 ```
-
-
