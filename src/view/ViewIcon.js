@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{Component} from 'react'
 import {Icon, Row, Col} from '../lib/index'
 
 const icon = [
@@ -245,24 +245,33 @@ const icon = [
   "alert-octagon"
 ]
 
-const ViewIcon = () => {
-  return (<Row>
-    <Col span={12}>
-      <div className="card">
-        <ul className="icon-list">
-          {
-            icon.map((item,index) => (
-              <li key={index}>
-                <Icon type={item}></Icon>
-                <span className="icon-class">{item}</span>
-              </li>
-            ))
-          }
-        </ul>
-
-      </div>
-    </Col>
-  </Row>)
+class ViewIcon extends Component{
+  copy(e){
+    let element = e.currentTarget.querySelector('.icon-copy');
+    element.select();
+    element.setSelectionRange(0, element.value.length);
+    document.execCommand("copy");
+    alert('拷贝成功')
+  }
+  render(){
+    return (<Row>
+      <Col span={12}>
+        <div className="card">
+          <ul className="icon-list">
+            {
+              icon.map((item,index) => (
+                <li key={index} onClick={(e) => this.copy(e)}>
+                  <Icon type={item}></Icon>
+                  <span className="icon-class">{item}</span>
+                  <input type="text" className="icon-copy" value={`<Icon type="${item}"></Icon>`} readOnly/>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+      </Col>
+    </Row>)
+  }
 }
 
 export default ViewIcon
