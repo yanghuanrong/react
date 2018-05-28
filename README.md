@@ -1,6 +1,6 @@
 # React
 
-(项目预览)[http://www.baidu.com]
+[项目预览](https://yanghuanrong.github.io/react/build/)
 
 ## 构建步骤
 

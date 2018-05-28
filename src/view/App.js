@@ -51,7 +51,19 @@ class ScrollToTop extends Component {
 
 const ToTop = withRouter(ScrollToTop)
 
+const Iframe = () => {
+  const repoPath = "https://ghbtns.com/github-btn.html?user=yanghuanrong&repo=react&count=true&type="
+  const repoBtn = ['watch&v=2','star','fork']
+  return (<div>
+    {repoBtn.map((item,index) => (
+      <iframe src={repoPath+item} title="start" scrolling="0" width="100px" height="20px" className="github-iframe"></iframe>)
+    )}
+    </div>
+  )
+}
+
 class App extends Component {
+
   render() {
     return (<HashRouter>
       <ToTop>
@@ -60,6 +72,7 @@ class App extends Component {
           <div className="page-content">
             <header className="navbar m-b">
               {routes.map((route, index) => (<Route path={route.path} component={route.sidebar} key={index}/>))}
+              <Iframe></Iframe>
             </header>
             <Switch>
               {routes.map((route, index) => (<Route path={route.path} component={route.main} key={index}/>))}
