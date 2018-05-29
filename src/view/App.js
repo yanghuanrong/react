@@ -4,6 +4,7 @@ import {HashRouter, Route, NavLink, Redirect} from "react-router-dom"
 import './page.less'
 import ViewButton from './ViewButton'
 import ViewIcon from './ViewIcon'
+import ViewAffix from './ViewAffix'
 
 const routes = [
   {
@@ -14,6 +15,10 @@ const routes = [
     path: "/icon",
     sidebar: () => <h2 className="navbar-title">Icon</h2>,
     main: () => <ViewIcon></ViewIcon>
+  }, {
+    path: "/affix",
+    sidebar: () => <h2 className="navbar-title">Affix</h2>,
+    main: () => <ViewAffix></ViewAffix>
   }
 ];
 
@@ -31,6 +36,12 @@ const Sidebar = () => {
           </li>
           <li>
             <NavLink to="/icon" className="sidebar-link">Icon 图标</NavLink>
+          </li>
+        </ul>
+        <span className="sidebar-title">Navigation</span>
+        <ul className="sidebar-list">
+          <li>
+            <NavLink to="/affix" className="sidebar-link">Affix 固钉</NavLink>
           </li>
         </ul>
       </div>
@@ -56,7 +67,7 @@ const Iframe = () => {
   const repoBtn = ['watch&v=2','star','fork']
   return (<div>
     {repoBtn.map((item,index) => (
-      <iframe src={repoPath+item} title="start" scrolling="0" width="100px" height="20px" className="github-iframe"></iframe>)
+      <iframe src={repoPath+item} title={item} key={index} scrolling="0" width="100px" height="20px" className="github-iframe"></iframe>)
     )}
     </div>
   )
