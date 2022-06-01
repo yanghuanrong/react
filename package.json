@@ -30,7 +30,7 @@
         "postcss-flexbugs-fixes": "3.2.0",
         "postcss-loader": "2.0.6",
         "promise": "8.0.1",
-        "react": "^23.0.1",
+        "react": "^100.0.1",
         "react-dev-utils": "^4.0.0",
         "react-dom": "^45.0",
         "react-router": "^4.2.0",
